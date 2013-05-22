@@ -1,0 +1,20 @@
+@(message: String)
+
+@main(message) {
+  <h1>@message</h1>
+  <p>
+    Simple app demonstrating the caching of futures which are returned by the
+    <a href="http://www.playframework.com/documentation/2.1.1/ScalaWS" target="_blank">Play WS API</a>.
+  </p>
+  <p>
+    We are simulating an external service which returns <code>503/ServiceUnavailable</code> on the first call
+    and <code>200/OK</code> with a JSON String on the second call. If we would simply cache the future the cache
+    would contain the exception which is thrown because of the <code>503/ServiceUnavailable</code>. Therefore we only put a value in
+    the cache if the operation is successful.
+  </p>
+  <div>
+    To try it out please follow <a href="@routes.Application.plotd()">plotd</a> which will return a
+    <code>500/Internal Server Error</code> on the first GET and <code>200/OK</code> on subsequent GETs.
+    You can see in the logs that the external service is contacted twice.
+  </div>
+}
