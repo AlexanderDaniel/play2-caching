@@ -12,9 +12,13 @@
     would contain the exception which is thrown because of the <code>503/ServiceUnavailable</code>. Therefore we only put a value in
     the cache if the operation is successful.
   </p>
-  <div>
+  <p>
     To try it out please follow <a href="@routes.Application.plotd()">plotd</a> which will return a
     <code>500/Internal Server Error</code> on the first GET and <code>200/OK</code> on subsequent GETs.
     You can see in the logs that the external service is contacted twice.
-  </div>
+  </p>
+  <p>
+    You can find a more detailed explanation at
+    <a href="https://github.com/AlexanderDaniel/play2-caching#readme" target="_blank">GitHub</a>.
+  </p>
 }
