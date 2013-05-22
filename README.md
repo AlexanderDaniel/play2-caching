@@ -32,7 +32,8 @@ responses of the external service:
 Here we check whether there is already an value with the cache key available in the cache. If not we query the repo
 and map the result to fill the cache in the successful case. If you want to play around just clone the repo!
 
-TODO information about the Play caching API
+The [Play caching API](http://www.playframework.com/documentation/2.1.1/ScalaCache) is implemented as a plugin
+which uses [Ehcache](http://ehcache.org) under the hood. TODO more info
 
 TODO Default ehcache.xml of Play
 https://github.com/playframework/Play20/blob/master/framework/src/play/src/main/resources/ehcache.xml
