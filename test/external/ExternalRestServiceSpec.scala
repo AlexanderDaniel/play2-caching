@@ -8,11 +8,11 @@ import play.api.test.Helpers._
 class ExternalRestServiceSpec extends Specification {
 
   "plotd" should {
-    "return 503 the first time, 200 the second time and than 503 for upcoming request" in {
+    "return 503 the first time and then 200 for upcoming request" in {
       status(plotd(FakeRequest())) === SERVICE_UNAVAILABLE
       status(plotd(FakeRequest())) === OK
-      status(plotd(FakeRequest())) === SERVICE_UNAVAILABLE
-      status(plotd(FakeRequest())) === SERVICE_UNAVAILABLE
+      status(plotd(FakeRequest())) === OK
+      status(plotd(FakeRequest())) === OK
     }
   }
 }

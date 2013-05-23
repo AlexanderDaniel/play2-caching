@@ -10,7 +10,7 @@ object ExternalRestService extends Controller {
 
   /** Programming Language Of The Day */
   def plotd = Action {
-    if (numberOfRequest.incrementAndGet()==2)
+    if (numberOfRequest.incrementAndGet()>=2)
       Ok(JsString("Scala"))
     else
       ServiceUnavailable
