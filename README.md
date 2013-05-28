@@ -1,6 +1,6 @@
 # Caching of Futures in Play 2.1
 The [Play WS API](http://www.playframework.com/documentation/2.1.1/ScalaWS) returns [futures](http://www.scala-lang.org/api/current/index.html#scala.concurrent.Future).
-We are [mapping theses futures](blob/master/app/repositories/SimpleRepo.scala) in our repositories
+We are mapping theses futures in our [repositories](https://en.wikipedia.org/wiki/Domain-driven_design)
 and return a future with the mapped value.
 
 How to introduce a caching proxy with the [Play caching API](http://www.playframework.com/documentation/2.1.1/ScalaCache)?
@@ -33,16 +33,20 @@ responses of the external service:
 Here we check whether there is already an value with the cache key available in the cache. If not we query the repo
 and map the result to fill the cache in the successful case.
 
-A working sample is available at [GitHub](https://github.com/AlexanderDaniel/play2-caching):
-* The [simulation of the external service](https://github.com/AlexanderDaniel/play2-caching/blob/master/app/external/ExternalRestService.scala)
-  with it's [unit tests](https://github.com/AlexanderDaniel/play2-caching/blob/master/test/external/ExternalRestServiceSpec.scala)
-* The [repo trait]()
-If you want to play around just clone the repo!
+A working sample is available at [GitHub](https://github.com/AlexanderDaniel/play2-caching/tree/blogPost1):
+* The [simulation of the external service](https://github.com/AlexanderDaniel/play2-caching/blob/blogPost1/app/external/ExternalRestService.scala)
+  with it's [unit tests](https://github.com/AlexanderDaniel/play2-caching/blob/blogPost1/test/external/ExternalRestServiceSpec.scala)
+* The [repo trait](https://github.com/AlexanderDaniel/play2-caching/blob/blogPost1/app/repositories/Repo.scala),
+  the [implementation](https://github.com/AlexanderDaniel/play2-caching/blob/blogPost1/app/repositories/SimpleRepo.scala),
+  and the [cache](https://github.com/AlexanderDaniel/play2-caching/blob/blogPost1/app/repositories/CachingRepo.scala)
+  with it's [unit tests](https://github.com/AlexanderDaniel/play2-caching/blob/blogPost1/test/repositories/CachingRepoSpec.scala)
 
-The [Play caching API](http://www.playframework.com/documentation/2.1.1/ScalaCache) is implemented as a plugin
-which uses [Ehcache](http://ehcache.org) under the hood. TODO more info
+If you want to play around just clone the [repo](https://github.com/AlexanderDaniel/play2-caching/tree/blogPost1)!
 
-TODO Default ehcache.xml of Play
-https://github.com/playframework/Play20/blob/master/framework/src/play/src/main/resources/ehcache.xml
-
-
+The [Play caching API](http://www.playframework.com/documentation/2.1.1/ScalaCache) is implemented as a
+[plugin](https://github.com/playframework/Play20/blob/master/framework/src/play/src/main/scala/play/api/Plugins.scala)
+which uses [Ehcache](http://ehcache.org) under the hood. Interested in the
+[code](https://github.com/playframework/Play20/blob/master/framework/src/play/src/main/scala/play/api/cache/Cache.scala)
+or the default
+[ehcache.xml](https://github.com/playframework/Play20/blob/master/framework/src/play/src/main/resources/ehcache.xml)
+of Play?
