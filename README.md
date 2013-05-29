@@ -1,9 +1,9 @@
 # Caching of Futures in Play 2.1
-The [Play WS API][] returns [futures][]. We are mapping theses futures in our [repositories][] and return a future with the mapped value.
+The [Play WS API][] returns [futures][]. We are mapping theses futures in our *Programming Language Of The Day (plotd)* [repository][] and return a future with the mapped value.
 
   [Play WS API]: http://www.playframework.com/documentation/2.1.1/ScalaWS
   [futures]: http://www.scala-lang.org/api/current/index.html#scala.concurrent.Future
-  [repositories]: https://en.wikipedia.org/wiki/Domain-driven_design
+  [repository]: https://en.wikipedia.org/wiki/Domain-driven_design
 
 How to introduce a caching proxy with the [Play caching API][]? To keep everything non-blocking it has to return a future as well. But can we cache the future? Well, YES! The future is just an object which is not bound to any thread.
 
