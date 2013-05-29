@@ -5,9 +5,9 @@ The [Play WS API][] returns [futures][]. We are mapping theses futures in our *P
   [futures]: http://www.scala-lang.org/api/current/index.html#scala.concurrent.Future
   [repository]: https://en.wikipedia.org/wiki/Domain-driven_design
 
-How to introduce a caching proxy with the [Play caching API][]? To keep everything non-blocking it has to return a future as well. But can we cache the future? Well, YES! The future is just an object which is not bound to any thread.
+How to introduce a caching proxy with the [Play cache API][]? To keep everything non-blocking it has to return a future as well. But can we cache the future? Well, YES! The future is just an object which is not bound to any thread.
 
-  [Play caching API]: http://www.playframework.com/documentation/2.1.1/ScalaCache
+  [Play cache API]: http://www.playframework.com/documentation/2.1.1/ScalaCache
   
 The straight-forward implementation of a caching proxy would look like this:
 
@@ -39,7 +39,7 @@ A working sample is available at [GitHub](https://github.com/AlexanderDaniel/pla
 
 If you want to play around just clone the [repo](https://github.com/AlexanderDaniel/play2-caching/tree/blogPost1)!
 
-The [Play caching API][] is implemented as a [plugin][] which uses [Ehcache][] under the hood. Interested in the [code][] or the default [ehcache.xml][] of Play?
+The [Play cache API][] is implemented as a [plugin][] which uses [Ehcache][] under the hood. Interested in the [code][] or the default [ehcache.xml][] of Play?
 
   [plugin]: https://github.com/playframework/Play20/blob/master/framework/src/play/src/main/scala/play/api/Plugins.scala
   [Ehcache]: http://ehcache.org
