@@ -1,8 +1,14 @@
 # Caching of Futures in Play 2.1
-The [Play WS API](http://www.playframework.com/documentation/2.1.1/ScalaWS) returns [futures](http://www.scala-lang.org/api/current/index.html#scala.concurrent.Future). We are mapping theses futures in our [repositories](https://en.wikipedia.org/wiki/Domain-driven_design) and return a future with the mapped value.
+The [Play WS API][] returns [futures][]. We are mapping theses futures in our [repositories][] and return a future with the mapped value.
 
-How to introduce a caching proxy with the [Play caching API](http://www.playframework.com/documentation/2.1.1/ScalaCache)? To keep everything non-blocking it has to return a future as well. But can we cache the future? Well, YES! The future is just an object which is not bound to any thread.
+  [Play WS API]: http://www.playframework.com/documentation/2.1.1/ScalaWS
+  [futures]: http://www.scala-lang.org/api/current/index.html#scala.concurrent.Future
+  [repositories]: https://en.wikipedia.org/wiki/Domain-driven_design
 
+How to introduce a caching proxy with the [Play caching API][]? To keep everything non-blocking it has to return a future as well. But can we cache the future? Well, YES! The future is just an object which is not bound to any thread.
+
+  [Play caching API]: http://www.playframework.com/documentation/2.1.1/ScalaCache
+  
 The straight-forward implementation of a caching proxy would look like this:
 
     class NaiveCachingRepo(repo: Repo) extends Repo {
@@ -33,4 +39,9 @@ A working sample is available at [GitHub](https://github.com/AlexanderDaniel/pla
 
 If you want to play around just clone the [repo](https://github.com/AlexanderDaniel/play2-caching/tree/blogPost1)!
 
-The [Play caching API](http://www.playframework.com/documentation/2.1.1/ScalaCache) is implemented as a [plugin](https://github.com/playframework/Play20/blob/master/framework/src/play/src/main/scala/play/api/Plugins.scala) which uses [Ehcache](http://ehcache.org) under the hood. Interested in the [code](https://github.com/playframework/Play20/blob/master/framework/src/play/src/main/scala/play/api/cache/Cache.scala) or the default [ehcache.xml](https://github.com/playframework/Play20/blob/master/framework/src/play/src/main/resources/ehcache.xml) of Play?
+The [Play caching API][] is implemented as a [plugin][] which uses [Ehcache][] under the hood. Interested in the [code][] or the default [ehcache.xml][] of Play?
+
+  [plugin]: https://github.com/playframework/Play20/blob/master/framework/src/play/src/main/scala/play/api/Plugins.scala
+  [Ehcache]: http://ehcache.org
+  [code]: https://github.com/playframework/Play20/blob/master/framework/src/play/src/main/scala/play/api/cache/Cache.scala
+  [ehcache.xml]: https://github.com/playframework/Play20/blob/master/framework/src/play/src/main/resources/ehcache.xml
