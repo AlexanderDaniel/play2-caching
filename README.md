@@ -28,12 +28,8 @@ Here we check whether there is already an value with the cache key available in 
 
 A working sample is available at [GitHub](https://github.com/AlexanderDaniel/play2-caching/tree/blogPost1):
 
-* The [simulation of the external service](https://github.com/AlexanderDaniel/play2-caching/blob/blogPost1/app/external/ExternalRestService.scala)
-  with it's [unit tests](https://github.com/AlexanderDaniel/play2-caching/blob/blogPost1/test/external/ExternalRestServiceSpec.scala)
-* The [repo trait](https://github.com/AlexanderDaniel/play2-caching/blob/blogPost1/app/repositories/Repo.scala),
-  the [implementation](https://github.com/AlexanderDaniel/play2-caching/blob/blogPost1/app/repositories/SimpleRepo.scala),
-  and the [cache](https://github.com/AlexanderDaniel/play2-caching/blob/blogPost1/app/repositories/CachingRepo.scala)
-  with it's [unit tests](https://github.com/AlexanderDaniel/play2-caching/blob/blogPost1/test/repositories/CachingRepoSpec.scala)
+* The [simulation of the external service](https://github.com/AlexanderDaniel/play2-caching/blob/blogPost1/app/external/ExternalRestService.scala) with it's [unit tests](https://github.com/AlexanderDaniel/play2-caching/blob/blogPost1/test/external/ExternalRestServiceSpec.scala)
+* The [repo trait](https://github.com/AlexanderDaniel/play2-caching/blob/blogPost1/app/repositories/Repo.scala), the [implementation](https://github.com/AlexanderDaniel/play2-caching/blob/blogPost1/app/repositories/SimpleRepo.scala), and the [cache](https://github.com/AlexanderDaniel/play2-caching/blob/blogPost1/app/repositories/CachingRepo.scala) with it's [unit tests](https://github.com/AlexanderDaniel/play2-caching/blob/blogPost1/test/repositories/CachingRepoSpec.scala)
 
 If you want to play around just clone the [repo](https://github.com/AlexanderDaniel/play2-caching/tree/blogPost1)!
 
