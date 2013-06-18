@@ -29,6 +29,12 @@ class FuturePlaygroundSpec extends Specification {
     }
   }
 
+  "returning a Try[T] inside of the future" should {
+    "yield a Try[Try[T]]" in {
+      pending
+    }
+  }
+
   private def valueOfReadyFuture[T](future: Future[T]): Try[T] = {
     Await.ready(future, Duration.Inf)
     future.value.get
