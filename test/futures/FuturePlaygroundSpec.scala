@@ -30,8 +30,14 @@ class FuturePlaygroundSpec extends Specification {
   }
 
   "returning a Try[T] inside of the future" should {
-    "yield a Try[Try[T]]" in {
-      pending
+    "yield a Try[Try[T]] for success" in {
+      val future = Future(Success("tst"))
+      valueOfReadyFuture(future) === Success(Success("tst"))
+    }
+    "yield a Try[Try[T]] for failure" in {
+      val exception = new RuntimeException("exception thrown inside future")
+      val future = Future(Failure(exception))
+      valueOfReadyFuture(future) === Success(Failure(exception))
     }
   }
 
